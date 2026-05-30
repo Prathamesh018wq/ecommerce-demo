@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('GitHub Check') {
+            steps {
+                echo 'GitHub Connected Successfully'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+
+        stage('Kubernetes Check') {
+            steps {
+                sh 'kubectl get nodes'
+            }
+        }
+    }
+}
